@@ -95,15 +95,14 @@ public class Cliente {
         // Método toString()
         @Override
         public String toString() {
-            return "Cliente{" +
-                    "idCliente=" + idCliente +
-                    ", nombre='" + nombre + '\'' +
-                    ", calle='" + calle + '\'' +
-                    ", numero=" + numero +
-                    ", codigoPostal='" + codigoPostal + '\'' +
-                    ", ciudad='" + ciudad + '\'' +
-                    ", pais='" + pais + '\'' +
-                    ", email='" + email + '\'' +
-                    '}';
+            return
+                    " Cliente=" + idCliente +
+                    " | Nombre='" + nombre + '\'' +
+                    "| Calle='" + calle + '\'' +
+                    "| Nro.=" + numero +
+                    "| CP='" + codigoPostal + '\'' +
+                    "| Ciudad='" + ciudad + '\'' +
+                    "| País='" + pais + '\'' +
+                    "| email='" + email + '\'' ;
         }
 }

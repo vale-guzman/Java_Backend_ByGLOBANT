@@ -34,9 +34,9 @@ public abstract class DAO {
         if (conexion != null) {
             try {
                 conexion.close();
-                System.out.println("La conexión a la base de datos fue cerrada de manera exitosa");
+                System.out.println("✅ La conexión a la base de datos fue cerrada de manera exitosa");
             } catch (SQLException e) {
-                System.out.println("Error al cerrar la conexión:" + e.getMessage());
+                System.out.println("❌ Error al cerrar la conexión:" + e.getMessage());
             }
         }
     }
