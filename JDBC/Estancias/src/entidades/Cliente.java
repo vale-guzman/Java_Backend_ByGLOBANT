@@ -96,13 +96,13 @@ public class Cliente {
         @Override
         public String toString() {
             return
-                    " Cliente=" + idCliente +
-                    " | Nombre='" + nombre + '\'' +
-                    "| Calle='" + calle + '\'' +
-                    "| Nro.=" + numero +
-                    "| CP='" + codigoPostal + '\'' +
-                    "| Ciudad='" + ciudad + '\'' +
-                    "| País='" + pais + '\'' +
-                    "| email='" + email + '\'' ;
+                    " Cliente:" + idCliente +
+                    " | Nombre:'" + nombre + '\'' +
+                    "| Dirección:'" + calle + " "+ numero +'\'' +
+                   // "| Nro.=" + numero +
+                    "| CP:'" + codigoPostal + '\'' +
+                    "| Ciudad:'" + ciudad +
+                    " - " + pais + '\'' +
+                    "| email:'" + email + '\'' ;
         }
 }
