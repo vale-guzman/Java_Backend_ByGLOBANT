@@ -2,7 +2,7 @@ package entidades;
 
 public class Cliente {
 
-         private int idCliente;
+        private int idCliente;
         private String nombre;
         private String calle;
         private int numero;
@@ -12,8 +12,7 @@ public class Cliente {
         private String email;
 
         // Constructor vacío
-        public Cliente() {
-        }
+        public Cliente() { }
 
         // Constructor con parámetros
         public Cliente(int idCliente, String nombre, String calle, int numero, String codigoPostal, String ciudad, String pais, String email) {
@@ -97,12 +96,12 @@ public class Cliente {
         public String toString() {
             return
                     " Cliente:" + idCliente +
-                    " | Nombre:'" + nombre + '\'' +
-                    "| Dirección:'" + calle + " "+ numero +'\'' +
+                    " , Nombre:'" + nombre + '\'' +
+                    ", Dirección:'" + calle + " "+ numero +'\'' +
                    // "| Nro.=" + numero +
-                    "| CP:'" + codigoPostal + '\'' +
-                    "| Ciudad:'" + ciudad +
+                    ", CP:'" + codigoPostal + '\'' +
+                    ", Ciudad:'" + ciudad +
                     " - " + pais + '\'' +
-                    "| email:'" + email + '\'' ;
+                    ", email:'" + email + '\'' ;
         }
 }

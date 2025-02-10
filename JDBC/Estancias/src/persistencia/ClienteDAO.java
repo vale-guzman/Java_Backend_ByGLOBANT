@@ -10,7 +10,8 @@ public class ClienteDAO extends DAO{
             if (cliente == null) {
                 throw new Exception("El cliente no puede ser nulo");
             }
-
+           // las VERIFICACIONES VAN EN SERVICIO. Ej. Si cliente.getIdCliente() ya existe, informar que debe ser
+            // mayor al último id, y mostrarlo.
             String sql = "INSERT INTO clientes (nombre, calle, numero, codigo_postal, ciudad, pais, email) VALUES ('" +
                     cliente.getNombre() + "', '" +
                     cliente.getCalle() + "', " +
