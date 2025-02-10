@@ -1,4 +1,5 @@
 import entidades.Cliente;
+import persistencia.CasaDAO;
 import persistencia.ClienteDAO;
 import persistencia.DAO;
 
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 
     public class App {
         public static void main(String[] args) throws Exception {
-           //Creo una nueva instancia de la Clase 'ClienteDAO'
+          /* //Creo una nueva instancia de la Clase 'ClienteDAO'
             ClienteDAO clienteDAO=new ClienteDAO();
 
             //Pruebo el método de listar todos los Clientes registrados
@@ -22,8 +23,13 @@ import java.sql.SQLException;
             clienteDAO.guardarCliente(clienteA);
 
             //verifico registro insertado
-            clienteDAO.listarTodosLosClientes();
+            clienteDAO.listarTodosLosClientes();  */
 
+            //Creo una nueva instancia de la Clase 'CasaDAO'
+            CasaDAO casaDAO=new CasaDAO();
+
+            //Pruebo el método de listar todos las Casas registradas
+            casaDAO.listarTodasLasCasas();
 
         }
     }

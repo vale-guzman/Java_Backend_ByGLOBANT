@@ -35,7 +35,7 @@ public class Casa {
         this.typeVivienda = typeVivienda;
     }
 
-    //getters & setters -- ACALARACIÓN: NO seteamos IdCasa, solo getIdCasa.
+    //getters & setters
     public int getIdCasa() {
         return idCasa;
     }
@@ -84,6 +84,9 @@ public class Casa {
         return typeVivienda;
     }
 
+   public void setIdCasa (int idCasa) {
+        this.idCasa=idCasa;
+   }
     public void setCalle(String calle) {
         this.calle = calle;
     }
@@ -130,17 +133,17 @@ public class Casa {
 
     @Override
     public String toString() {
-        return "CASA[" +
+        return "[" +
                 "Casa:" + idCasa +
-                ", calle:'" + calle + ", nro=" + nro + '\'' +
-                ", cp:'" + cp + '\'' +
-                ", ciudad:'" + ciudad + " - " + pais + '\'' +
-                ", alquiler_Desde:" + fechaDesde +
-                ", alquiler_Hasta:" + fechaHasta +
-                ", tiempo_Mínimo:" + timeMin +
-                ", tiempo_Máximo:" + timeMax +
-                ", precio_Habitación:" + priceRoom +
-                ", tipo_De_Casa:'" + typeVivienda + '\'' +
+                ", Dirección:'" + calle + " " + nro + '\'' +
+                ", CP:'" + cp + '\'' +
+                ", Ciudad:'" + ciudad + "-" + pais + '\'' +
+                ",|Alquiler_Desde:" + fechaDesde +
+                "--> Hasta:" + fechaHasta +
+                " |Tiempo_Mínimo:" + timeMin +
+                ", Tiempo_Máximo:" + timeMax +
+                ", precio_Habitación:" +'$'+ priceRoom +
+                ", Tipo_De_Casa:'" + typeVivienda + '\'' +
                 ']';
     }
 }
