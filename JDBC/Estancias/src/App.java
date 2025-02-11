@@ -31,10 +31,10 @@ import java.sql.SQLException;
             //Pruebo el método de listar todos las Casas registradas
             casaDAO.listarTodasLasCasas();
 
-            //Creo una nueva instancia de la Clase 'CasaDAO'
+            //Creo una nueva instancia de la Clase 'ComentarioDAO'
             ComentarioDAO comentarioDAO=new ComentarioDAO();
 
-            //Pruebo el método de listar todos las Casas registradas
+            //Pruebo el método de listar todos los Comentarios registrados
             comentarioDAO.listarTodosLosComments();
         }
     }
