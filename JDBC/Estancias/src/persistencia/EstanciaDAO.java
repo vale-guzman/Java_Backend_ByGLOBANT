@@ -59,7 +59,7 @@ public class EstanciaDAO extends DAO{
     }
     public void eliminarEstanciasPorId(int id) throws Exception {
         try {
-            String sql = "DELETE FROM estancias WHERE id_esancia = " + id;
+            String sql = "DELETE FROM estancias WHERE id_estancia = " + id;
             insertarModificarEliminarDataBase(sql);
         } catch (SQLException e) {
             throw e;

@@ -15,6 +15,16 @@ public class Estancia {
     public Estancia() {
     }
 
+    //Constructor con todos los parámetros excepto idEstancia
+
+    public Estancia(int idCliente, int idCasa, String nombreCliente, Date fechaDesde, Date fechaHasta) {
+        this.idCliente = idCliente;
+        this.idCasa = idCasa;
+        this.nombreCliente = nombreCliente;
+        this.fechaDesde = fechaDesde;
+        this.fechaHasta = fechaHasta;
+    }
+
     //Constructor con todos los pámetros
     public Estancia(int idEstancia, int idCliente, int idCasa, String nombreCliente, Date fechaDesde, Date fechaHasta) {
         this.idEstancia = idEstancia;

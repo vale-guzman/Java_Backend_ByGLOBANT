@@ -15,6 +15,12 @@ public class Comentario {
         this.comentario = comentario;
     }
 
+    //Constructor con todos los parámetros excepto idComentario
+    public Comentario(int idCasa, String comentario) {
+        this.idCasa = idCasa;
+        this.comentario = comentario;
+    }
+
     //getters & setters
     public int getIdComentario() {
         return idComentario;

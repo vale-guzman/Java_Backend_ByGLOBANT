@@ -26,6 +26,17 @@ public class Cliente {
             this.email = email;
         }
 
+        //Constructor con todos los parámetros excepto idFamilia
+        public Cliente(String nombre, String calle, int numero, String codigoPostal, String ciudad, String pais, String email) {
+        this.nombre = nombre;
+        this.calle = calle;
+        this.numero = numero;
+        this.codigoPostal = codigoPostal;
+        this.ciudad = ciudad;
+        this.pais = pais;
+        this.email = email;
+    }
+
         // Getters y Setters
         public int getIdCliente() {
             return idCliente;

@@ -19,6 +19,21 @@ public class Casa {
     //Constructor sin parámetros
     public Casa() {    }
 
+    //Constructor con todos los parámetros excepto idCasa
+    public Casa(String calle, int nro, String cp, String ciudad, String pais, Date fechaDesde, Date fechaHasta, int timeMin, int timeMax, float priceRoom, String typeVivienda) {
+        this.calle = calle;
+        this.nro = nro;
+        this.cp = cp;
+        this.ciudad = ciudad;
+        this.pais = pais;
+        this.fechaDesde = fechaDesde;
+        this.fechaHasta = fechaHasta;
+        this.timeMin = timeMin;
+        this.timeMax = timeMax;
+        this.priceRoom = priceRoom;
+        this.typeVivienda = typeVivienda;
+    }
+
     //Constructor con todos los pámetros
     public Casa(int idCasa, String calle, int nro, String cp, String ciudad, String pais, Date fechaDesde, Date fechaHasta, int timeMin, int timeMax, float priceRoom, String typeVivienda) {
         this.idCasa = idCasa;

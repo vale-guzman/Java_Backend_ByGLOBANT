@@ -64,4 +64,22 @@ public abstract class DAO {
             System.out.println(e.getMessage());
         }
     }
-}
+
+    //Propuesta de resolución Genérica y más segura, usando PreparedStatement (Gracias Guille Funaro)
+    //PENDIENTE DE IMPLEMENTAR en mi solución actual.
+    /* protected void ejecutarModificacion(String sql, Object... parametros) throws SQLException, ClassNotFoundException {
+        try (Connection conn = obtenerConexion();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            for (int i = 0; i < parametros.length; i++) {
+                stmt.setObject(i + 1, parametros[i]);
+            }
+            stmt.executeUpdate();
+            System.out.println("Operación realizada con éxito.");
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.err.println("Error en la base de datos: " + ex.getMessage());
+            throw ex;
+        } */
+    }
+
+
