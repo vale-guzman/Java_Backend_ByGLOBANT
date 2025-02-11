@@ -2,6 +2,7 @@ import entidades.Cliente;
 import persistencia.CasaDAO;
 import persistencia.ComentarioDAO;
 import persistencia.DAO;
+import persistencia.EstanciaDAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,16 +27,22 @@ import java.sql.SQLException;
             clienteDAO.listarTodosLosClientes();  */
 
             //Creo una nueva instancia de la Clase 'CasaDAO'
-            CasaDAO casaDAO=new CasaDAO();
+           // CasaDAO casaDAO=new CasaDAO();
 
             //Pruebo el método de listar todos las Casas registradas
-            casaDAO.listarTodasLasCasas();
+           // casaDAO.listarTodasLasCasas();
 
             //Creo una nueva instancia de la Clase 'ComentarioDAO'
-            ComentarioDAO comentarioDAO=new ComentarioDAO();
+           // ComentarioDAO comentarioDAO=new ComentarioDAO();
 
             //Pruebo el método de listar todos los Comentarios registrados
-            comentarioDAO.listarTodosLosComments();
+           //comentarioDAO.listarTodosLosComments();
+
+            //Creo una nueva instancia de la Clase 'EstanciaDAO'
+             EstanciaDAO estanciaDAO=new EstanciaDAO();
+
+            //Pruebo el método de listar todas las ESTANCIAS registradas
+           estanciaDAO.listarTodasLasEstancias();
         }
     }
 

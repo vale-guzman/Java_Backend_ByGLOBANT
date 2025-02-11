@@ -57,7 +57,8 @@ public class CasaDAO extends DAO{
             }
             System.out.println("=== Lista de CASAS ===");
             for (Casa casa : casas) {
-                System.out.println(casa); // Utiliza el método toString() de la clase CASA para mostrar los datos.
+                // Utiliza el método toString() de la clase CASA para mostrar los datos.
+                System.out.println(casa);
             }
 
         } catch (SQLException e) {

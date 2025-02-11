@@ -48,7 +48,8 @@ public class ClienteDAO extends DAO{
             }
             System.out.println("=== Lista de Clientes ===");
             for (Cliente cliente : clientes) {
-                System.out.println(cliente); // Utiliza el método toString() de la clase Cliente
+                // Utiliza el método toString() de la clase Cliente
+                System.out.println(cliente);
             }
 
         } catch (SQLException e) {
