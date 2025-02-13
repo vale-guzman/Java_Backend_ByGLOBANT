@@ -20,6 +20,10 @@ public class GamaProducto {
 
     private String imagen;
 
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
+    private Producto producto;
+
     //Constructor empty
     public GamaProducto() {
     }
@@ -43,20 +47,22 @@ public class GamaProducto {
     public void setDescripcionHtml(String descripcionHtml) {
         this.descripcionHtml = descripcionHtml;
     }
-
     public String getGama() {
         return gama;
     }
-
     public void setGama(String gama) {
         this.gama = gama;
     }
-
     public String getImagen() {
         return imagen;
     }
-
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+    public Producto getProducto() {
+        return producto;
+    }
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }
