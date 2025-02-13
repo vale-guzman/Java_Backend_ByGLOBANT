@@ -19,7 +19,7 @@ public class Empleado {
     private String extension;
     private String email;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn (name = "id_oficina")
     private Oficina idOficina;
 
