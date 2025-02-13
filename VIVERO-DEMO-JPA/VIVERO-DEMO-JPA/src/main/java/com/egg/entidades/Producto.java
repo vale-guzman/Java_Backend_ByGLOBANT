@@ -25,4 +25,64 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "id_gama")
     private GamaProducto gamaProducto;
+
+    //Constructor vacío
+    public Producto() {
+    }
+
+    //Setters & Getters
+    public int getIdProducto() {
+        return idProducto;
+    }
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+    public int getCantStock() {
+        return cantStock;
+    }
+    public void setCantStock(int cantStock) {
+        this.cantStock = cantStock;
+    }
+    public String getCodProducto() {
+        return codProducto;
+    }
+    public void setCodProducto(String codProducto) {
+        this.codProducto = codProducto;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public String getDimensiones() {
+        return dimensiones;
+    }
+    public void setDimensiones(String dimensiones) {
+        this.dimensiones = dimensiones;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public float getPrecioProveedor() {
+        return precioProveedor;
+    }
+    public void setPrecioProveedor(float precioProveedor) {
+        this.precioProveedor = precioProveedor;
+    }
+    public float getPrecioVenta() {
+        return precioVenta;
+    }
+    public void setPrecioVenta(float precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+    public GamaProducto getGamaProducto() {
+        return gamaProducto;
+    }
+    public void setGamaProducto(GamaProducto gamaProducto) {
+        this.gamaProducto = gamaProducto;
+    }
 }
