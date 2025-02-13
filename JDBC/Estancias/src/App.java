@@ -1,8 +1,5 @@
 import entidades.Cliente;
-import persistencia.CasaDAO;
-import persistencia.ComentarioDAO;
-import persistencia.DAO;
-import persistencia.EstanciaDAO;
+import persistencia.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,21 +7,24 @@ import java.sql.SQLException;
 
     public class App {
         public static void main(String[] args) throws Exception {
-          /* //Creo una nueva instancia de la Clase 'ClienteDAO'
+          //Creo una nueva instancia de la Clase 'ClienteDAO'
             ClienteDAO clienteDAO=new ClienteDAO();
 
             //Pruebo el método de listar todos los Clientes registrados
             clienteDAO.listarTodosLosClientes();
 
             //Creo una instancia de la clase Entidad: 'Cliente' e invoco a su constructor con los datos.
-            Cliente clienteA= new Cliente(8,"Valeria Guzman","Av.Cordoba",123,"5000","Cordoba Capital","Argentina","mimail@gmail.com");
+           // Cliente clienteA= new Cliente(8,"Valeria Guzman","Av.Cordoba",123,"5000","Cordoba Capital","Argentina","mimail@gmail.com");
 
             // invoco al método guardar de la Clase de Persistencia ClienteDAO
             // enviando por parámetro el nuevo cliente creado.
-            clienteDAO.guardarCliente(clienteA);
+            //clienteDAO.guardarCliente(clienteA);
 
-            //verifico registro insertado
-            clienteDAO.listarTodosLosClientes();  */
+            //invoco al método 'eliminiar' de la clase ClienteDao
+            clienteDAO.eliminarClientePorId(8);
+
+            //verifico registro insertado/eliminado
+            clienteDAO.listarTodosLosClientes();
 
             //Creo una nueva instancia de la Clase 'CasaDAO'
            // CasaDAO casaDAO=new CasaDAO();
@@ -39,10 +39,10 @@ import java.sql.SQLException;
            //comentarioDAO.listarTodosLosComments();
 
             //Creo una nueva instancia de la Clase 'EstanciaDAO'
-             EstanciaDAO estanciaDAO=new EstanciaDAO();
+            // EstanciaDAO estanciaDAO=new EstanciaDAO();
 
             //Pruebo el método de listar todas las ESTANCIAS registradas
-           estanciaDAO.listarTodasLasEstancias();
+           //estanciaDAO.listarTodasLasEstancias();
         }
     }
 

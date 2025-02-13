@@ -22,7 +22,7 @@ public abstract class DAO {
     public Connection conectar() throws SQLException, ClassNotFoundException {
         try {
             Connection conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD);
-            System.out.println("✅ Conexión exitosa a la BD 'Estancias'");
+            System.out.println("✅ Conexión EXITOSA a la BD 'Estancias'");
             return conexion;
         } catch (SQLException e) {
             System.out.println("❌ Error al conectar: " + e.getMessage());
@@ -34,7 +34,7 @@ public abstract class DAO {
         if (conexion != null) {
             try {
                 conexion.close();
-                System.out.println("✅ La conexión a la base de datos fue cerrada de manera exitosa");
+                System.out.println("✅ La conexión a la BD fué CERRADA exitosamente.");
             } catch (SQLException e) {
                 System.out.println("❌ Error al cerrar la conexión:" + e.getMessage());
             }
