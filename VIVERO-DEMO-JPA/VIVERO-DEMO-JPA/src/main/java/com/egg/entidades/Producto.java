@@ -26,6 +26,9 @@ public class Producto {
     @JoinColumn(name = "id_gama")
     private GamaProducto gamaProducto;
 
+    @Column(name = "proveedor")
+    private String proveedor;
+
     //Constructor vacío
     public Producto() {
     }

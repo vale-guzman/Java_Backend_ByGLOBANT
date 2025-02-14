@@ -23,6 +23,10 @@ public class Pedido {
     @Column(name = "fecha_pedido")
     private Date fechaPedido;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_esperada")
+    private Date fechaEsperada;
+
     @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
@@ -32,6 +36,7 @@ public class Pedido {
     }
 
     //Getters & Setters
+
     public int getIdPedido() {
         return idPedido;
     }
@@ -62,6 +67,8 @@ public class Pedido {
     public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
+    public Date getFechaEsperada() {        return fechaEsperada;    }
+    public void setFechaEsperada(Date fechaEsperada) {        this.fechaEsperada = fechaEsperada;    }
     public Date getFechaPedido() {
         return fechaPedido;
     }

@@ -28,12 +28,12 @@ public class Cliente {
     @Column (name = "codigo_postal")
     private String cp;
 
-    @OneToOne
-    @JoinColumn (name = "id_empleado")
-    private Empleado idEmpleado;
+
+    @Column (name = "id_empleado")
+    private int idEmpleado;
 
     @Column (name = "limite_credito")
-    private float limiteCredito;
+    private Double limiteCredito;
 
     @Column(name = "nombre_cliente")
     private String nombreCliente;
@@ -97,16 +97,13 @@ public class Cliente {
     public void setCp(String cp) {
         this.cp = cp;
     }
-    public Empleado getIdEmpleado() {
-        return idEmpleado;
-    }
-    public void setIdEmpleado(Empleado idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
-    public float getLimiteCredito() {
+
+    public int getIdEmpleado() {        return idEmpleado;    }
+    public void setIdEmpleado(int idEmpleado) {        this.idEmpleado = idEmpleado;    }
+    public double getLimiteCredito() {
         return limiteCredito;
     }
-    public void setLimiteCredito(float limiteCredito) {
+    public void setLimiteCredito(double limiteCredito) {
         this.limiteCredito = limiteCredito;
     }
     public String getNombreCliente() {

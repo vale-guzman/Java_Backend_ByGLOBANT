@@ -21,8 +21,7 @@ public class GamaProducto {
     private String imagen;
 
     //Constructor empty
-    public GamaProducto() {
-    }
+    public GamaProducto() {    }
 
     //Setters & Getters
     public int getIdGama() {

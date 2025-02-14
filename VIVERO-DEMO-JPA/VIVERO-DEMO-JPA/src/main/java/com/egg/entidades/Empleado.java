@@ -2,6 +2,8 @@ package com.egg.entidades;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "empleado")
 public class Empleado {
@@ -18,14 +20,16 @@ public class Empleado {
     private String apellido;
     private String extension;
     private String email;
+    @OneToMany
+    @JoinColumn(name = "id_cliente")
+    private List<Cliente> clientes;
 
-    @ManyToOne
-    @JoinColumn (name = "id_oficina")
-    private Oficina idOficina;
 
-    @OneToOne
-    @JoinColumn(name="id_empleado")
-    private Empleado idJefe;
+    @Column (name = "id_oficina")
+    private int idOficina;
+
+    @Column (name = "id_jefe")
+    private int idJefe;
 
     private String puesto;
 
@@ -84,19 +88,11 @@ public class Empleado {
         this.email = email;
     }
 
-    public Oficina getIdOficina() {
-        return idOficina;
-    }
-
-    public void setIdOficina(Oficina idOficina) {
-        this.idOficina = idOficina;
-    }
-
-    public Empleado getIdJefe() {
+       public int getIdJefe() {
         return idJefe;
     }
 
-    public void setIdJefe(Empleado idJefe) {
+    public void setIdJefe(int idJefe) {
         this.idJefe = idJefe;
     }
 
