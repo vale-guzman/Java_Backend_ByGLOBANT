@@ -1,8 +1,6 @@
 package com.egg.persistencia;
 
-import com.egg.entidades.Cliente;
 import com.egg.entidades.GamaProducto;
-import com.egg.entidades.Producto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

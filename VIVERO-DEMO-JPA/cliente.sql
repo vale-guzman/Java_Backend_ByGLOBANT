@@ -1,3 +1,6 @@
+table cliente;
+select * from cliente where codigo_cliente=100;
+
 INSERT INTO cliente(id_cliente, codigo_cliente, nombre_cliente,nombre_contacto ,apellido_contacto,telefono, fax, ciudad,pais,codigo_postal,id_empleado,limite_credito) VALUES (1,1,'GoldFish Garden','Daniel G','GoldFish','5556901745','5556901746','San Francisco','USA','24006',5,3000);
 INSERT INTO cliente(id_cliente, codigo_cliente, nombre_cliente,nombre_contacto ,apellido_contacto,telefono, fax, ciudad,pais,codigo_postal,id_empleado,limite_credito) VALUES (2,2,'Gardening Associates','Anne','Wright','5557410345','5557410346','Miami','USA','24010',7,6000);
 INSERT INTO cliente(id_cliente, codigo_cliente, nombre_cliente,nombre_contacto ,apellido_contacto,telefono, fax, ciudad,pais,codigo_postal,id_empleado,limite_credito) VALUES (3,3,'Gerudo Valley','Link','Flaute','5552323129','5552323128','New York','USA','85495',9,12000);

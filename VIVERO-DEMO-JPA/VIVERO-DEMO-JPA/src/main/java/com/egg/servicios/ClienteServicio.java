@@ -1,7 +1,6 @@
 package com.egg.servicios;
 
 import com.egg.entidades.Cliente;
-import com.egg.entidades.Empleado;
 import com.egg.persistencia.ClienteDAO;
 
 

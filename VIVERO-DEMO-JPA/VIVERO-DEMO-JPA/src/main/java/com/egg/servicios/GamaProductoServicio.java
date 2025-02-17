@@ -1,8 +1,7 @@
 package com.egg.servicios;
 
-import com.egg.entidades.Cliente;
+
 import com.egg.entidades.GamaProducto;
-import com.egg.persistencia.ClienteDAO;
 import com.egg.persistencia.GamaProductoDAO;
 
 public class GamaProductoServicio {

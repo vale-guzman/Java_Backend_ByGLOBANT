@@ -71,6 +71,18 @@ public class FamiliaDAO extends DAO{
         }
     }
 
+    //ACLARACIÓN SOBRE MANEJEO EN LA BD
+    /* Ahora agrego una nueva restricción de clave foránea que permita la eliminación en cascada.
+    Esto asegurará que, al eliminar un registro de la tabla Casas, los registros correspondientes
+    en Familias también se eliminen automáticamente.
+
+    ALTER TABLE familias
+    ADD CONSTRAINT fk_id_casa_familia_familias
+    FOREIGN KEY (id_casa_familia)
+    REFERENCES casas (id_casa)
+    ON DELETE CASCADE; */
+
+    //PENDIENTE DE IMPLEMENTAR
     //Propuesta de resolución Genérica y más segura, usando PreparedStatement (Gracias Guille Funaro)
     //PENDIENTE DE IMPLEMENTAR en mi solución actual.
     /* public boolean crearFamilia(Familia familia) throws SQLException, ClassNotFoundException {
