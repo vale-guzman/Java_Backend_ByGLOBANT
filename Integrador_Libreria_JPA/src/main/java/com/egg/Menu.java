@@ -9,18 +9,20 @@ public class Menu {
 
         do {
             System.out.println("\n===== MENÚ LIBRERÍA =====");
-            System.out.println("1. Crear base de datos Librería");
-            System.out.println("2. Configurar unidad de persistencia");
-            System.out.println("3. Crear entidades (Libro, Autor, Editorial)");
-            System.out.println("4. Generar tablas con JPA");
-            System.out.println("5. Crear servicios para manipulación de entidades");
-            System.out.println("6. Persistir entidades en la base de datos");
-            System.out.println("7. Dar de alta/baja o editar entidades");
-            System.out.println("8. Buscar autor por nombre");
-            System.out.println("9. Buscar libro por ISBN");
-            System.out.println("10. Buscar libro por título");
-            System.out.println("11. Buscar libro/s por nombre de autor");
-            System.out.println("12. Buscar libro/s por nombre de editorial");
+            System.out.println("1. Dar de ALTA Editorial");
+            System.out.println("2. Dar de BAJA Editorial");
+            System.out.println("3. EDITAR Editorial");
+            System.out.println("4. Dar de ALTA Autor");
+            System.out.println("5. Dar de BAJA Autor");
+            System.out.println("6. EDITAR Autor");
+            System.out.println("7. Dar de ALTA Libro");
+            System.out.println("8. Dar de BAJA Libro");
+            System.out.println("9. EDITAR Libro");
+            System.out.println("10. Buscar autor por nombre");
+            System.out.println("11. Buscar libro por ISBN");
+            System.out.println("12. Buscar libro por título");
+            System.out.println("13. Buscar libro/s por nombre de autor");
+            System.out.println("14. Buscar libro/s por nombre de editorial");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
@@ -29,40 +31,46 @@ public class Menu {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Creando base de datos Librería...");
+                    System.out.println("Dando de ALTA Editorial...");
                     // Llamar a un método que realice la creación de la BD
                     break;
                 case 2:
-                    System.out.println("Configurando unidad de persistencia...");
+                    System.out.println("Dando de BAJA Editorial...");
                     break;
                 case 3:
-                    System.out.println("Creando entidades Libro, Autor, Editorial...");
+                    System.out.println("Editando Editorial...");
                     break;
                 case 4:
-                    System.out.println("Generando tablas con JPA...");
+                    System.out.println("Dando de ALTA Autor...");
                     break;
                 case 5:
-                    System.out.println("Creando servicios para manipulación de entidades...");
+                    System.out.println("Dando de BAJA Autor...");
                     break;
                 case 6:
-                    System.out.println("Persistiendo entidades en la base de datos...");
+                    System.out.println("Editando Autor...");
                     break;
                 case 7:
-                    System.out.println("Dando de alta/baja o editando entidades...");
+                    System.out.println("Dando de Alta Libro...");
                     break;
                 case 8:
-                    System.out.println("Buscando autor por nombre...");
+                    System.out.println("Dando de BAJA Libro...");
                     break;
                 case 9:
-                    System.out.println("Buscando libro por ISBN...");
+                    System.out.println("Editando Libro...");
                     break;
                 case 10:
-                    System.out.println("Buscando libro por título...");
+                    System.out.println("Buscando autor por nombre...");
                     break;
                 case 11:
-                    System.out.println("Buscando libro/s por nombre de autor...");
+                    System.out.println("Buscando libro por ISBN...");
                     break;
                 case 12:
+                    System.out.println("Buscando libro por título...");
+                    break;
+                case 13:
+                    System.out.println("Buscando libro/s por nombre de autor...");
+                    break;
+                case 14:
                     System.out.println("Buscando libro/s por nombre de editorial...");
                     break;
                 case 0:
