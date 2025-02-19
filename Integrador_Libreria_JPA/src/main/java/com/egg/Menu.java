@@ -111,7 +111,7 @@ public class Menu {
                             String nom = scanner.nextLine();
                             // scanner.nextLine(); // limpia el buffer
 
-                            System.out.println("Dando de ALta la Editorial " + nom);
+                            System.out.println("Dando de Alta la Editorial " + nom);
                             // Llamar al método del servicio para crear una nueva Editorial
                             editorialServicio.crearEditorial(nom, true);
                             break;
@@ -126,7 +126,7 @@ public class Menu {
                             String nom = scanner.nextLine();
                             scanner.nextLine(); // limpia el buffer
 
-                            System.out.println("Dando de ALta el Autor " + nom);
+                            System.out.println("Dando de Alta el Autor " + nom);
                             // Llamar al método del servicio para crear una nueva Editorial
                             autorServicio.crearAutor(nom, true);
                             break;
@@ -136,25 +136,31 @@ public class Menu {
                             // Instanciar la clase LibroServicio para acceder a sus métodos
                             LibroServicio libroServicio = new LibroServicio();
                             // Pido los datos
-                            System.out.println("Ingrese el ISNB del nuevo Libro");
+                            System.out.println("Ingrese el ISNB del nuevo Libro: ");
                             Long isbn = scanner.nextLong();
                             scanner.nextLine(); // limpia el buffer
 
-                            System.out.println("Ingrese el Titulo del nuevo Libro");
+                            System.out.println("Ingrese el Titulo del nuevo Libro: ");
                             String title = scanner.nextLine();
                             scanner.nextLine(); // limpia el buffer
 
-                            System.out.println("Ingrese el año del nuevo Libro");
+                            System.out.println("Ingrese el año del nuevo Libro: ");
                             int year = scanner.nextInt();
                             scanner.nextLine(); // limpia el buffer
 
-                            System.out.println("Ingrese la cantidad de EJEMPLARES del nuevo Libro");
+                            System.out.println("Ingrese la cantidad de EJEMPLARES del nuevo Libro: ");
                             int cant = scanner.nextInt();
                             scanner.nextLine(); // limpia el buffer
 
-                            System.out.println("Dando de ALta el libro " + title);
+                            System.out.println("Ingrese el ID del Autor: ");
+                            int auth=scanner.nextInt();
+
+                            System.out.println("Ingrese el ID de la Editorial: ");
+                            int edit=scanner.nextInt();
+
+                            System.out.println("Dando de Alta el libro " + title);
                             // Llamar al método del servicio para crear una nueva Editorial
-                            libroServicio.crearLibro(isbn, title, year, cant, true);
+                            libroServicio.crearLibro(isbn, title, year, cant, true,auth,edit);
                             break;
                         }
 

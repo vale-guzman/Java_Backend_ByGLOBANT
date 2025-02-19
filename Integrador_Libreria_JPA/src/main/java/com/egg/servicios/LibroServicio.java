@@ -12,7 +12,7 @@ public class LibroServicio {
 
     public LibroServicio() {   this.libroDao = new LibroDAO();  }
 
-    public void crearLibro(Long id,String tit,int y, int stock,boolean b) {
+    public void crearLibro(Long id,String tit,int y, int stock,boolean b,int aut, int edit) {
         try {
             // Crear una nueva instancia de Libro
             Libro libroNuevo = new Libro();
@@ -21,8 +21,8 @@ public class LibroServicio {
             libroNuevo.setAnio(y);
             libroNuevo.setEjemplares(stock);
             libroNuevo.setAlta(b);
-            libroNuevo.setAutor(null);
-            libroNuevo.setEditorial(null);
+            libroNuevo.setAutores(null);
+            libroNuevo.setAutores(null);
             libroDao.guardar(libroNuevo);
 
         } catch (Exception e) {
@@ -51,8 +51,8 @@ public class LibroServicio {
             for (Libro libro : libros) {
                 System.out.println("ISBN: " + libro.getIsbn() + ", Título: " + libro.getTitulo()
                         + ", Alta: " + libro.isAlta() + " Ejemplares: "+ libro.getEjemplares()
-                        + " Año Edición: " + libro.getAnio() + " Autor: " + libro.getAutor()
-                        + " Editorial: "+ libro.getEditorial());
+                        + " Año Edición: " + libro.getAnio() + " Autor: " + libro.getAutores()
+                        + " Editorial: "+ libro.getEditoriales());
             }
         };
     }

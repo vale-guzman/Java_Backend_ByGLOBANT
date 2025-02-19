@@ -2,6 +2,8 @@ package com.egg.entidades;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table (name="libros")
 public class Libro {
@@ -14,13 +16,13 @@ public class Libro {
     private int ejemplares;
     private boolean alta;
 
-    @ManyToOne //Defino el tipo de relación. Muchos Libros están relaciones a un mismo AUTOR.
+    @OneToMany //Defino el tipo de relación. Muchos Libros están relaciones a un mismo AUTOR.
     @JoinColumn(name = "id_autor") //la relación con AUTOR es através de este atributo.
-    private Autor autor;
+    private List<Autor> autores;
 
-    @ManyToOne //Defino el tipo de relación. Muchos Libros están relaciones a un mismo EDITORIAL.
+    @OneToMany //Defino el tipo de relación. Muchos Libros están relaciones a un mismo EDITORIAL.
     @JoinColumn(name = "id_editorial") //la relación con EDITORIAL es através de este atributo.
-    private Editorial editorial;
+    private List<Editorial> editoriales;
 
     public Libro() {   }
 
@@ -66,19 +68,19 @@ public class Libro {
         this.alta = alta;
     }
 
-    public Autor getAutor() {
-        return autor;
+    public List<Autor> getAutores() {
+        return autores;
     }
 
-    public void setAutor(Autor autor) {
-        this.autor = autor;
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
     }
 
-    public Editorial getEditorial() {
-        return editorial;
+    public List<Editorial> getEditoriales() {
+        return editoriales;
     }
 
-    public void setEditorial(Editorial editorial) {
-        this.editorial = editorial;
+    public void setEditoriales(List<Editorial> editoriales) {
+        this.editoriales = editoriales;
     }
 }
