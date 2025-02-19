@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 public class Libro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long isbn;
 
     private String titulo;

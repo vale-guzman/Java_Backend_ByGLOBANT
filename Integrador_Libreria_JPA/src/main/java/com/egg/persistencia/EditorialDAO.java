@@ -6,6 +6,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.util.List;
+
 public class EditorialDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("libreriaPU");
@@ -27,6 +29,15 @@ public class EditorialDAO {
         em.getTransaction().commit();
     }
 
+    public List<Editorial> listarTodos() {
+        List<Editorial> editoriales = null;
+        try {
+            editoriales = em.createQuery("SELECT e FROM Editorial e", Editorial.class).getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return editoriales;
+    }
     public void darDeBaja(int id) {
         Editorial editorial = buscarPorId(id);
         if (editorial != null) {

@@ -13,8 +13,7 @@ public class Editorial {
     private boolean alta;
 
     //Constructor vacío
-    public Editorial() {
-    }
+    public Editorial() {   }
 
     //Setters & Getter
 
