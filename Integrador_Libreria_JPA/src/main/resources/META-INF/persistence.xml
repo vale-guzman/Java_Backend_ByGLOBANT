@@ -3,7 +3,7 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
-    <persistence-unit name="LibreriaPU" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="libreriaPU" transaction-type="RESOURCE_LOCAL">
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3305/libreria?serverTimezone=UTC"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
