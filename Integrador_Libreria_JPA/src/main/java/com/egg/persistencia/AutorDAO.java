@@ -28,9 +28,10 @@ public class AutorDAO {
         em.getTransaction().commit();
     }
     public List<Autor> listarTodos() {
-        List<Autor> autores = null;
+        List<Autor> autores=null;
         try {
             autores = em.createQuery("SELECT a FROM Autor a", Autor.class).getResultList();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

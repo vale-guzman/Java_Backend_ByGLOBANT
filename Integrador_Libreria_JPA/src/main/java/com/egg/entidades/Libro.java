@@ -16,13 +16,13 @@ public class Libro {
     private int ejemplares;
     private boolean alta;
 
-    @OneToMany //Defino el tipo de relación. Muchos Libros están relaciones a un mismo AUTOR.
+    @ManyToOne //Defino el tipo de relación. Muchos Libros están relaciones a un mismo AUTOR.
     @JoinColumn(name = "id_autor") //la relación con AUTOR es através de este atributo.
-    private List<Autor> autores;
+    private Autor autor;
 
-    @OneToMany //Defino el tipo de relación. Muchos Libros están relaciones a un mismo EDITORIAL.
+    @ManyToOne //Defino el tipo de relación. Muchos Libros están relaciones a un mismo EDITORIAL.
     @JoinColumn(name = "id_editorial") //la relación con EDITORIAL es através de este atributo.
-    private List<Editorial> editoriales;
+    private Editorial editorial;
 
     public Libro() {   }
 
@@ -68,19 +68,19 @@ public class Libro {
         this.alta = alta;
     }
 
-    public List<Autor> getAutores() {
-        return autores;
+    public Autor getAutor() {
+        return autor;
     }
 
-    public void setAutores(List<Autor> autores) {
-        this.autores = autores;
+    public void setAutor(Autor autor) {
+        this.autor = autor;
     }
 
-    public List<Editorial> getEditoriales() {
-        return editoriales;
+    public Editorial getEditorial() {
+        return editorial;
     }
 
-    public void setEditoriales(List<Editorial> editoriales) {
-        this.editoriales = editoriales;
+    public void setEditorial(Editorial editorial) {
+        this.editorial = editorial;
     }
 }

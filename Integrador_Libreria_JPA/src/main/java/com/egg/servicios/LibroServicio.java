@@ -9,11 +9,23 @@ import java.util.List;
 
 public class LibroServicio {
     private final LibroDAO libroDao;
+    private AutorServicio autorServicio;
+    private EditorialServicio editorialServicio;
 
-    public LibroServicio() {   this.libroDao = new LibroDAO();  }
+    public LibroServicio() {
+        this.libroDao = new LibroDAO();
+        this.autorServicio= new AutorServicio();
+        this.editorialServicio= new EditorialServicio();
+    }
 
     public void crearLibro(Long id,String tit,int y, int stock,boolean b,int aut, int edit) {
-        try {
+        Autor autor = autorServicio.obtenerAutorPorId(aut);
+       Editorial editorial = editorialServicio.obtenerEditoriaPorId(edit);
+
+       if (autor == null || editorial == null) {
+            throw new RuntimeException("Autor o Editorial no encontrados");
+       }
+       try {
             // Crear una nueva instancia de Libro
             Libro libroNuevo = new Libro();
             libroNuevo.setIsbn(id);
@@ -21,8 +33,9 @@ public class LibroServicio {
             libroNuevo.setAnio(y);
             libroNuevo.setEjemplares(stock);
             libroNuevo.setAlta(b);
-            libroNuevo.setAutores(null);
-            libroNuevo.setAutores(null);
+            libroNuevo.setAutor(autor);
+            libroNuevo.setEditorial(editorial);
+
             libroDao.guardar(libroNuevo);
 
         } catch (Exception e) {
@@ -51,8 +64,8 @@ public class LibroServicio {
             for (Libro libro : libros) {
                 System.out.println("ISBN: " + libro.getIsbn() + ", Título: " + libro.getTitulo()
                         + ", Alta: " + libro.isAlta() + " Ejemplares: "+ libro.getEjemplares()
-                        + " Año Edición: " + libro.getAnio() + " Autor: " + libro.getAutores()
-                        + " Editorial: "+ libro.getEditoriales());
+                        + " Año Edición: " + libro.getAnio() + " Autor: " + libro.getAutor()
+                        + " Editorial: "+ libro.getEditorial());
             }
         };
     }
