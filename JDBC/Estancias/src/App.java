@@ -4,14 +4,27 @@ import persistencia.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Scanner;
 
-    public class App {
+public class App {
         public static void main(String[] args) throws Exception {
+
+            Scanner sc= new Scanner(System.in);
           //Creo una nueva instancia de la Clase 'ClienteDAO'
             ClienteDAO clienteDAO=new ClienteDAO();
 
             //Pruebo el método de listar todos los Clientes registrados
-            clienteDAO.listarTodosLosClientes();
+           // clienteDAO.listarTodosLosClientes();
+
+            //Pruebo el método Buscar Cliente por ID
+            System.out.println("Ingrese el ID del cliente que desea Buscar: ");
+            int idSearch= sc.nextInt();
+            Cliente clienteBuscado= clienteDAO.buscarClientePorId(idSearch);
+
+            if(clienteBuscado!=null) {
+                System.out.println(clienteBuscado);}
+            else System.out.println("No existe cliente con el ID= "+idSearch);
+
 
             //Creo una instancia de la clase Entidad: 'Cliente' e invoco a su constructor con los datos.
            // Cliente clienteA= new Cliente(8,"Valeria Guzman","Av.Cordoba",123,"5000","Cordoba Capital","Argentina","mimail@gmail.com");
@@ -21,10 +34,10 @@ import java.sql.SQLException;
             //clienteDAO.guardarCliente(clienteA);
 
             //invoco al método 'eliminiar' de la clase ClienteDao
-            clienteDAO.eliminarClientePorId(8);
+            //clienteDAO.eliminarClientePorId(8);
 
             //verifico registro insertado/eliminado
-            clienteDAO.listarTodosLosClientes();
+           // clienteDAO.listarTodosLosClientes();
 
             //Creo una nueva instancia de la Clase 'CasaDAO'
            // CasaDAO casaDAO=new CasaDAO();
@@ -43,7 +56,8 @@ import java.sql.SQLException;
 
             //Pruebo el método de listar todas las ESTANCIAS registradas
            //estanciaDAO.listarTodasLasEstancias();
+
         }
-    }
+}
 
 

@@ -60,6 +60,31 @@ public class ClienteDAO extends DAO{
         return clientes;
     }
 
+    public Cliente buscarClientePorId(int id) throws Exception{
+
+        List<Cliente> clientes = new ArrayList<>();
+        String sql="SELECT * FROM clientes  WHERE id_cliente=" + id;
+        try{
+            consultarDataBase(sql);
+            Cliente cliente=null;
+
+            while(resultSet.next()){
+                cliente=new Cliente();
+                cliente.setIdCliente(resultSet.getInt("id_cliente"));
+                cliente.setNombre(resultSet.getString("nombre"));
+                cliente.setCalle(resultSet.getString("calle"));
+                cliente.setNumero(resultSet.getInt("numero"));
+                cliente.setCodigoPostal(resultSet.getString("codigo_postal"));
+                cliente.setCiudad(resultSet.getString("ciudad"));
+                cliente.setPais(resultSet.getString("pais"));
+                cliente.setEmail(resultSet.getString("email"));
+            }
+            cerrarConexion(conexion);
+            return cliente;
+        }catch (SQLException e){
+            throw e;
+        }
+    }
     public void eliminarClientePorId(int id) throws Exception {
         try {
             String sql = "DELETE FROM clientes WHERE id_cliente = " + id;
