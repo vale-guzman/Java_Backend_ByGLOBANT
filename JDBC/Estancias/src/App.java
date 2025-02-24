@@ -1,5 +1,6 @@
 import entidades.Cliente;
 import persistencia.*;
+import servicios.ClientService;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,19 +12,19 @@ public class App {
 
             Scanner sc= new Scanner(System.in);
           //Creo una nueva instancia de la Clase 'ClienteDAO'
-            ClienteDAO clienteDAO=new ClienteDAO();
+          //  ClienteDAO clienteDAO=new ClienteDAO();
 
             //Pruebo el método de listar todos los Clientes registrados
            // clienteDAO.listarTodosLosClientes();
 
             //Pruebo el método Buscar Cliente por ID
-            System.out.println("Ingrese el ID del cliente que desea Buscar: ");
-            int idSearch= sc.nextInt();
-            Cliente clienteBuscado= clienteDAO.buscarClientePorId(idSearch);
-
-            if(clienteBuscado!=null) {
-                System.out.println(clienteBuscado);}
-            else System.out.println("No existe cliente con el ID= "+idSearch);
+//            System.out.println("Ingrese el ID del cliente que desea Buscar: ");
+//            int idSearch= sc.nextInt();
+//            Cliente clienteBuscado= clienteDAO.buscarClientePorId(idSearch);
+//
+//            if(clienteBuscado!=null) {
+//                System.out.println(clienteBuscado);}
+//            else System.out.println("No existe cliente con el ID= "+idSearch);
 
 
             //Creo una instancia de la clase Entidad: 'Cliente' e invoco a su constructor con los datos.
@@ -56,7 +57,18 @@ public class App {
 
             //Pruebo el método de listar todas las ESTANCIAS registradas
            //estanciaDAO.listarTodasLasEstancias();
+//  ---------------------------------------------------------------------------------------------
+           // Probando los SERVICIOS
+           // Creo una instancia del ClienteService
+            ClientService clientService=new ClientService();
 
+            //Pruebo el método de Crear un cliente
+            //clientService.crearNuevoCliente("Luisa Prueba","Av SiempreViva",
+            //       742,"5000","Springfield", "USA","testemial@email.com" );
+
+            //Pruebo la validación al Crear un Cliente
+            clientService.crearNuevoCliente("","test2",1234,"1234","test2",
+                    "test2","");
         }
 }
 
