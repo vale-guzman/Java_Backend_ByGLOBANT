@@ -2,6 +2,7 @@ package com.egg.biblioteca.services;
 
 import com.egg.biblioteca.entities.Autor;
 import com.egg.biblioteca.entities.Editorial;
+import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.repositories.AutorRepositorio;
 import com.egg.biblioteca.repositories.EditorialRepositorio;
 import jakarta.transaction.Transactional;
@@ -19,7 +20,9 @@ public class EditorialService {
     @Autowired
     EditorialRepositorio editorialRepositorio;
     @Transactional
-    public void crearEditorial(String nombre) {
+    public void crearEditorial(String nombre) throws MyException{
+        validar(nombre);
+
         Editorial editorial=new Editorial();
         editorial.setNombre(nombre);
 
@@ -34,8 +37,9 @@ public class EditorialService {
     }
 
    @Transactional
-   public void modificarEditorial(String nombre, UUID id){
-       Optional<Editorial> respuesta= editorialRepositorio.findById(id);
+   public void modificarEditorial(String nombre, UUID id)throws MyException{
+       validar(nombre);
+        Optional<Editorial> respuesta= editorialRepositorio.findById(id);
 
        if (respuesta.isPresent()){
            Editorial editorialEncontrada=respuesta.get();
@@ -44,4 +48,9 @@ public class EditorialService {
            editorialRepositorio.save(editorialEncontrada);
        }
    }
+   private void validar(String nombre)throws MyException {
+        if (nombre.isEmpty() || nombre == null) {
+            throw new MyException("El NOMBRE no puede ser NULO");
+        }
+    }
 }
