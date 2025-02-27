@@ -67,8 +67,8 @@ public class App {
             //       742,"5000","Springfield", "USA","testemial@email.com" );
 
             //Pruebo la validación al Crear un Cliente
-            clientService.crearNuevoCliente("","test2",1234,"1234","test2",
-                    "test2","");
+           // clientService.crearNuevoCliente("","test2",1234,"1234","test2",
+            //        "test2","");
         }
 }
 

@@ -18,7 +18,7 @@ public class Libro {
     private int ejemplares;
 
     //@Temporal (TemporalType.DATE)
-    private LocalDate alta;
+    private Date alta;
 
     @ManyToOne
     @JoinColumn(name="id_name")
@@ -54,11 +54,11 @@ public class Libro {
         this.ejemplares = ejemplares;
     }
 
-    public LocalDate getAlta() {
+    public Date getAlta() {
         return alta;
     }
 
-    public void setAlta(LocalDate alta) {
+    public void setAlta(Date alta) {
         this.alta = alta;
     }
 
