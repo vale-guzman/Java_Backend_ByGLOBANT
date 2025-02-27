@@ -9,9 +9,8 @@ import com.egg.biblioteca.repositories.LibroRepositorio;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.UUID;
+
+import java.util.*;
 
 @Service
 public class LibroService {
@@ -40,5 +39,27 @@ public class LibroService {
 
         libroRepositorio.save(libro);
 
+    }
+
+    public List<Libro>listarLibros(){
+        List<Libro> listaLibros= new ArrayList<>();
+        listaLibros=libroRepositorio.findAll();
+        return  listaLibros;
+    }
+
+    @Transactional
+    public void modificarLibro(String titulo, int ejemplares, UUID idAutor, UUID idEditorial, Long isbn){
+        Optional<Libro> respuesta= libroRepositorio.findById(isbn);
+
+        if(respuesta.isPresent()){
+            Libro libroEncontrado=respuesta.get();
+
+            libroEncontrado.setTitulo(titulo);
+            libroEncontrado.setEjemplares(ejemplares);
+            libroEncontrado.setAutor(autorRepositorio.findById(idAutor).get());
+            libroEncontrado.setEditorial(editorialRepositorio.findById(idEditorial).get());
+
+            libroRepositorio.save(libroEncontrado);
+        }
     }
 }

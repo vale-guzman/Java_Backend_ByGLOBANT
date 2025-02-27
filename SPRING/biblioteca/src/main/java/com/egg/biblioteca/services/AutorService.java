@@ -6,6 +6,11 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class AutorService {
     @Autowired
@@ -18,5 +23,23 @@ public class AutorService {
         autor.setNombre(nombre);
 
         autorRepositorio.save(autor);
+    }
+    public List<Autor> listarAutores(){
+        List<Autor> listaAutores=new ArrayList<>();
+
+        listaAutores=autorRepositorio.findAll();
+
+        return listaAutores;
+    }
+
+    @Transactional
+    public void modificarAutor(String nombre, UUID id){
+        Optional<Autor> respuesta=autorRepositorio.findById(id);
+        if(respuesta.isPresent()){
+            Autor autorEncontrado= respuesta.get();
+
+            autorEncontrado.setNombre(nombre);
+            autorRepositorio.save(autorEncontrado);
+        }
     }
 }
