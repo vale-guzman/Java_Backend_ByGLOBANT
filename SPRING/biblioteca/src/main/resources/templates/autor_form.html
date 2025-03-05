@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown">
               <ul class="navbar-nav ms-auto elementos">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Libros
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -34,7 +34,7 @@
 
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Autores
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,7 +49,7 @@
 
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Editoriales
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -65,10 +65,10 @@
           </nav>
         <div class="container-fluid m-5 contenedor">
 
-            <form class="formulario" >
+            <form class="formulario" th:action="@{/autor/registro}" method="POST" >
                 <div class="form-group my-3">
                     <label class="mb-2">Cargar Autores</label> 
-                    <input type="text" class="form-control"  placeholder="Nombre del Autor">
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre del Autor">
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-3 botones">Guardar</button>
