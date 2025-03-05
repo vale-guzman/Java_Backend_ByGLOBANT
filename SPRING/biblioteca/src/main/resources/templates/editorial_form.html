@@ -32,7 +32,6 @@
                 </ul>
             </li>
 
-
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Autores
@@ -45,8 +44,6 @@
                     <li><a class="dropdown-item" th:href="@{/autor/lista}">Listar Autores</a></li>
                 </ul>
             </li>
-
-
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,6 +63,21 @@
 <div class="container-fluid m-5 contenedor">
 
     <form class="formulario" th:action="@{/editorial/registro}" method="POST" >
+
+        <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+            <div class="card-body">
+                <h5 class="card-title">Exito!</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3 mensajeError" >
+            <div class="card-body">
+                <h5 class="card-title">Error 👎</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+
+
         <div class="form-group my-3">
             <label class="mb-2">Cargar Editoriales</label>
             <input type="text" class="form-control" name="nombre" placeholder="Nombre de la Editorial">

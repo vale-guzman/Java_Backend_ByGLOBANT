@@ -4,6 +4,7 @@ import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.EditorialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +27,14 @@ public class EditorialControlador {
     }
 
     @PostMapping("/registro")
-    public String registro(@RequestParam String nombre){
+    public String registro(@RequestParam String nombre,
+                           ModelMap modelMap){
        try {
         editorialService.crearEditorial(nombre);
+        modelMap.put("exito","La Editorial fué cargada Correctamente");
     }catch (MyException ex){
            Logger.getLogger(EditorialControlador.class.getName()).log(Level.SEVERE,null, ex);
+           modelMap.put("error", ex.getMessage());
            return "editorial_form.html";
     }
         return "index.html";
