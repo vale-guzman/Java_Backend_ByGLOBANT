@@ -12,8 +12,6 @@ import java.util.UUID;
 
 @Repository
 public interface AutorRepositorio extends JpaRepository <Autor, UUID>{
-//    @Query("select a.id from Autor a where a.id = :id")
-//    public Autor findAutorById(@Param("id") String id);
 
     @Query("select a.nombre from Autor a where a.nombre like %:nombre")
     public List<Autor> findAutorsByNombre(@Param("nombre") String nombre);

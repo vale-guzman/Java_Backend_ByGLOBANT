@@ -8,6 +8,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface LibroRepositorio extends JpaRepository<Libro,Long> {
+    @Query("SELECT l FROM Libro l WHERE l.isbn = :isbn")
+    public Libro findLibroByIsbn(@Param("isbn") Long isbn);
+
     @Query("SELECT l FROM Libro l WHERE l.titulo like :titulo")
     public Libro findByLibroPorTitulo(@Param("titulo") String titulo);
 

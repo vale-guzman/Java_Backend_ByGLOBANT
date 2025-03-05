@@ -12,9 +12,6 @@ import java.util.UUID;
 @Repository
 public interface EditorialRepositorio extends JpaRepository<Editorial, UUID> {
 
-//    @Query ("select e.id from Editorial e where e.id = :id")
-//    public Editorial findEditorialById(@Param("id") int id);
-
     @Query("select e.nombre from Editorial e where e.nombre like %:nombre")
     public List<Editorial> findEditorialsByNombre(@Param("nombre") String nombre);
 }

@@ -47,7 +47,7 @@ public class AutorService {
     }
 
     private void validar(String nombre)throws MyException{
-            if (nombre.isEmpty() || nombre == null) {
+            if (nombre == null|| nombre.isEmpty()) {
                 throw new MyException("El NOMBRE no puede ser NULO");
             }
     }

@@ -87,7 +87,7 @@ public class LibroService {
         if (isbn==null){
             throw new MyException("El ISBN no puede ser NULO.");
         }
-        if(titulo.isEmpty() || titulo==null){
+        if(titulo==null || titulo.isEmpty()){
             throw new MyException("El TÍTULO no puede ser NULO");
         }
         if(ejemplares==null){
