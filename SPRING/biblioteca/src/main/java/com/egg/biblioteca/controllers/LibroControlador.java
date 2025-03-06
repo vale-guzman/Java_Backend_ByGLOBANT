@@ -1,5 +1,7 @@
 package com.egg.biblioteca.controllers;
 
+import com.egg.biblioteca.entities.Autor;
+import com.egg.biblioteca.entities.Editorial;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.AutorService;
 import com.egg.biblioteca.services.EditorialService;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -27,7 +30,11 @@ public class LibroControlador {
     private EditorialService editorialService;
 
     @GetMapping("/registrar")//localhost:8080/libro/registrar
-    public String registrar(){
+    public String registrar(ModelMap modelMap){
+        List<Autor> autores=autorService.listarAutores();
+        List<Editorial> editoriales=editorialService.listarEditoriales();
+        modelMap.addAttribute("autores",autores);
+        modelMap.addAttribute("editoriales",editoriales);
         return "libro_form.html";
     }
 
