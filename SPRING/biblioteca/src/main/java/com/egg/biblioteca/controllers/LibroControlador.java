@@ -2,6 +2,7 @@ package com.egg.biblioteca.controllers;
 
 import com.egg.biblioteca.entities.Autor;
 import com.egg.biblioteca.entities.Editorial;
+import com.egg.biblioteca.entities.Libro;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.AutorService;
 import com.egg.biblioteca.services.EditorialService;
@@ -52,5 +53,13 @@ public class LibroControlador {
             return "libro_form.html"; // volvemos a cargar el formulario.
         }
         return "index.html";
+    }
+    @GetMapping("/listar") // http://localhost:8080/libro/listar
+    public String listar (ModelMap modelMap){
+
+        List<Libro> libros = libroService.listarLibros();
+        modelMap.addAttribute("libros", libros);
+        return "libro_list.html";
+
     }
 }
