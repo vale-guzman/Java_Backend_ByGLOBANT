@@ -1,5 +1,6 @@
 package com.egg.biblioteca.controllers;
 
+import com.egg.biblioteca.entities.Autor;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,7 +30,6 @@ public class AutorControlador {
     @PostMapping("/registro")
     public String registro(@RequestParam String nombre,
                            ModelMap modelMap){
-
         try{
            autorService.crearAutor(nombre);
            modelMap.put("exito","El Autor fué cargado Correctamente");
@@ -39,4 +40,14 @@ public class AutorControlador {
         }
         return "index.html";
     }
+
+    @GetMapping("/listar") // http://localhost:8080/autor/listar
+    public String listar (ModelMap modelMap){
+
+        List<Autor> autores = autorService.listarAutores();
+        modelMap.addAttribute("autores", autores);
+        return "autor_list.html";
+
+    }
+
 }
