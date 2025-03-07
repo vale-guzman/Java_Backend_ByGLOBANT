@@ -7,12 +7,10 @@ import com.egg.biblioteca.services.EditorialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,5 +48,28 @@ public class EditorialControlador {
         modelMap.addAttribute("editoriales", editoriales);
         return "editorial_list.html";
 
+    }
+
+    @GetMapping ("/modificar/{id}") //localhost:8080/editorial/modificar
+    public String modificar(@PathVariable UUID id,
+                            ModelMap modelMap){
+        editorialService.getOne(id);
+        modelMap.put("editorial",editorialService.getOne(id));
+        return "editorial_modificar.html";
+    }
+
+    @PostMapping ("/modificar/{id}")
+    public String modificar(@PathVariable UUID id,
+                            String nombre, ModelMap modelMap){
+        try{
+
+            editorialService.modificarEditorial(nombre, id);
+            modelMap.put("exito","La Editorial fué Modificada Correctamente");
+            return "redirect:../listar";
+        }catch (MyException ex){
+            Logger.getLogger(AutorControlador.class.getName()).log(Level.SEVERE,null, ex);
+            modelMap.put("error", ex.getMessage());
+            return "editorial_modificar.html";
+        }
     }
 }

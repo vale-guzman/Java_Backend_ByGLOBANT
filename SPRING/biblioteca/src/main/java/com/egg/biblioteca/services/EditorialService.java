@@ -1,5 +1,6 @@
 package com.egg.biblioteca.services;
 
+import com.egg.biblioteca.entities.Autor;
 import com.egg.biblioteca.entities.Editorial;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.repositories.EditorialRepositorio;
@@ -52,5 +53,9 @@ public class EditorialService {
         if (nombre == null || nombre.isEmpty()) {
             throw new MyException("El NOMBRE no puede ser NULO");
         }
+    }
+    @Transactional()
+    public Editorial getOne(UUID id){
+        return editorialRepositorio.findById(id).orElse(null);
     }
 }
