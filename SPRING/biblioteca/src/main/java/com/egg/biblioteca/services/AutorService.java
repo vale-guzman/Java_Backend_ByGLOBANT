@@ -51,4 +51,10 @@ public class AutorService {
                 throw new MyException("El NOMBRE no puede ser NULO");
             }
     }
+
+    @Transactional()
+    public Autor getOne(UUID id){
+
+        return autorRepositorio.findById(id).orElse(null);
+    }
 }

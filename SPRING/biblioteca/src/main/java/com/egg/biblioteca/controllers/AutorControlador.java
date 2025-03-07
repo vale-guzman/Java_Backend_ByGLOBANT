@@ -5,13 +5,12 @@ import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,4 +49,26 @@ public class AutorControlador {
 
     }
 
+    @GetMapping ("/modificar/{id}") //localhost:8080/autor/modificar
+    public String modificar(@PathVariable UUID id,
+                            ModelMap modelMap){
+        autorService.getOne(id);
+        modelMap.put("autor",autorService.getOne(id));
+        return "autor_modificar.html";
+    }
+
+    @PostMapping ("/modificar/{id}")
+    public String modificar(@PathVariable UUID id,
+                            String nombre, ModelMap modelMap){
+        try{
+
+            autorService.modificarAutor(nombre, id);
+            modelMap.put("exito","El Autor fué Modificado Correctamente");
+            return "redirect:../listar";
+        }catch (MyException ex){
+            Logger.getLogger(AutorControlador.class.getName()).log(Level.SEVERE,null, ex);
+            modelMap.put("error", ex.getMessage());
+            return "autor_modificar.html";
+        }
+    }
 }
