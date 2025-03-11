@@ -3,6 +3,7 @@ package com.egg.biblioteca.controllers;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ public class PortalControlador {
     }
 
     @GetMapping("/registrar")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public String registrar(){
         return "registro.html";
     }
@@ -49,6 +51,8 @@ public class PortalControlador {
     }
 
     @GetMapping ("/inicio")
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // indicamos que pueden ingresar a esta URL (/inicio) solo si
+                                                          // estamos logueados.
     public String inicio(){
         return "inicio.html";
     }

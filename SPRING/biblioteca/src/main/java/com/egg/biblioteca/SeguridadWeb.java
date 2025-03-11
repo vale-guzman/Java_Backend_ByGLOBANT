@@ -14,8 +14,12 @@ public class SeguridadWeb {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authorize) -> authorize
-                                .requestMatchers("/css/", "/js/", "/img/", "/**")
-                                .permitAll())
+        //los únicos usuarios que podrán ingresar a la URL /admin serán los que tengan el rol "ADMIN"
+                                .requestMatchers( "/admin/**").hasRole("ADMIN")
+                                .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                                .requestMatchers("/login", "/register").permitAll() // Permitir acceso a login y registro
+                                .anyRequest().authenticated() //Requiere autenticacion
+                )
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/logincheck")  //Cuando se envía el formulario, se acciona hacia logincheck
@@ -25,10 +29,9 @@ public class SeguridadWeb {
                         .permitAll())
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/login")
                         .permitAll())
-
-                .csrf(csrf -> csrf.disable());
+                .csrf(csrf -> csrf.disable()); // Spring Security lo trae intrínsecamente, lo deshabilitamos.
         return http.build();
     }
     @Bean
