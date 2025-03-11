@@ -40,8 +40,17 @@ public class PortalControlador {
         }
     }
     @GetMapping("/login")
-    public String login(){
+    //puede o no venir un error, por esto el RequestParam es required=false
+    public String login(@RequestParam(required = false) String error, ModelMap modelmap){
+        if (error != null) {
+            modelmap.put("error", "Usuario o Contraseña inválidos!");
+        }
         return "login.html";
+    }
+
+    @GetMapping ("/inicio")
+    public String inicio(){
+        return "inicio.html";
     }
 
 
