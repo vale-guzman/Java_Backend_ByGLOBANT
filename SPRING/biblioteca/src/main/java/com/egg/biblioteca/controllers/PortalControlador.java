@@ -1,7 +1,9 @@
 package com.egg.biblioteca.controllers;
 
+import com.egg.biblioteca.entities.Usuario;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.UsuarioService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -52,8 +54,12 @@ public class PortalControlador {
 
     @GetMapping ("/inicio")
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // indicamos que pueden ingresar a esta URL (/inicio) solo si
-                                                          // estamos logueados.
-    public String inicio(){
+                                                            // estamos logueados.
+    public String inicio(HttpSession session){
+        Usuario logueado = (Usuario) session.getAttribute("usuariosession");
+        if (logueado.getRol().toString().equals("ADMIN")) {
+            return "redirect:/admin/dashboard";
+        }
         return "inicio.html";
     }
 

@@ -2,6 +2,7 @@ package com.egg.biblioteca;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +10,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SeguridadWeb {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -17,7 +19,7 @@ public class SeguridadWeb {
         //los únicos usuarios que podrán ingresar a la URL /admin serán los que tengan el rol "ADMIN"
                                 .requestMatchers( "/admin/**").hasRole("ADMIN")
                                 .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
-                                .requestMatchers("/login", "/register").permitAll() // Permitir acceso a login y registro
+                                .requestMatchers("/login", "/registrar").permitAll() // Permitir acceso a login y registro
                                 .anyRequest().authenticated() //Requiere autenticacion
                 )
                 .formLogin((form) -> form

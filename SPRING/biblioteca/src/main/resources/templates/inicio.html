@@ -27,7 +27,12 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Libros
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+
+
+                    <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/libro/registrar}">Crear Libro</a></li>
+                    <li ><hr class="dropdown-divider"></li>
+
                     <li><a class="dropdown-item" th:href="@{/libro/listar}">Listar Libros</a></li>
                 </ul>
             </li>
@@ -37,7 +42,10 @@
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Autores
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+
+                    <li sec:authorize="hasRole('ADMIN')"> <a class="dropdown-item" th:href="@{/autor/registrar}">Crear Autor</a></li>
+                    <li><hr class="dropdown-divider"></li>
 
                     <li><a class="dropdown-item" th:href="@{/autor/listar}">Listar Autores</a></li>
                 </ul>
@@ -49,7 +57,11 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Editoriales
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+
+                    <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/editorial/registrar}">Crear Editorial</a></li>
+                    <li><hr class="dropdown-divider"></li>
+
                     <li><a class="dropdown-item" th:href="@{/editorial/listar}">Listar Editoriales</a></li>
                 </ul>
             </li>
@@ -66,6 +78,7 @@
     </div>
 </nav>
 
+<p>Usuario autenticado: <span sec:authentication="name"></span></p>
 <header class="header">
     <section class="contenedorMain">
         <div class="tituloBiblioteca">
