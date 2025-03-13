@@ -52,7 +52,7 @@ public class AutorService {
             }
     }
 
-    @Transactional()
+    @Transactional
     public Autor getOne(UUID id){
         return autorRepositorio.findById(id).orElse(null);
     }

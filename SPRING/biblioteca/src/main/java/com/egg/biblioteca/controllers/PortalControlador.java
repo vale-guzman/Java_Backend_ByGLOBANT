@@ -1,5 +1,6 @@
 package com.egg.biblioteca.controllers;
 
+import com.egg.biblioteca.entities.Imagen;
 import com.egg.biblioteca.entities.Usuario;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.services.UsuarioService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/")
@@ -31,11 +33,12 @@ public class PortalControlador {
     }
 
     @PostMapping("/registro")
-    public String registro(@RequestParam String nombre, @RequestParam String email,
+    public String registro(@RequestParam MultipartFile archivo,
+                           @RequestParam String nombre, @RequestParam String email,
                            @RequestParam String password, @RequestParam String password2,
                            ModelMap modelMap){
         try{
-            usuarioService.registrar(nombre, email, password, password2);
+            usuarioService.registrar(archivo,nombre, email, password, password2);
             modelMap.put("exito","Usuario registrado Correctamente" );
                     return "index.html";
         }catch (MyException ex){

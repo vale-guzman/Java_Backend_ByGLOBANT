@@ -21,7 +21,7 @@ public class Libro {
     private Date alta;
 
     @ManyToOne
-    @JoinColumn(name="id_name")
+    @JoinColumn(name="id_autor")
     private Autor autor;
 
     @ManyToOne

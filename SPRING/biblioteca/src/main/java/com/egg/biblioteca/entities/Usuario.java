@@ -17,6 +17,11 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
+    @OneToOne
+    @JoinColumn (name="id_Imagen")
+    private Imagen imagen;
+
+
     //Constructor vacío
     public Usuario() {    }
 
@@ -24,15 +29,12 @@ public class Usuario {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -53,5 +55,11 @@ public class Usuario {
     }
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+    public Imagen getImagen() {
+        return imagen;
+    }
+    public void setImagen(Imagen imagen) {
+        this.imagen = imagen;
     }
 }
