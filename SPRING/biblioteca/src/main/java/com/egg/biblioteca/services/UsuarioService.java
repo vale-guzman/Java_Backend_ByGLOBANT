@@ -20,7 +20,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

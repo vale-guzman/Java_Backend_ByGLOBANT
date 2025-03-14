@@ -1,8 +1,15 @@
 package com.egg.biblioteca.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table (name="autores")
 public class Autor {
@@ -13,22 +20,4 @@ public class Autor {
     private UUID id;
 
     String nombre;
-
-    public Autor() {    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 }
