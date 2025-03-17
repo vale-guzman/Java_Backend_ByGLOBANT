@@ -1,64 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="/fragments/head :: head"></head>
+<head th:replace="~{/fragments/head :: head}"></head>
 
 <body>
-<nav class="navbar navbar-expand-lg navBar">
-    <div class="containerImg">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-            <img class="logo" src="/img/Egg.png" alt="Img logo egg">
-        </a>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse elementosNav" id="navbarNavDropdown1">
-        <ul class="navbar-nav ms-auto elementos">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Libros
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-
-                    <li><a class="dropdown-item" th:href="@{/libro/registrar}">Crear Libro</a></li>
-                    <li><hr class="dropdown-divider"></li>
-
-                    <li><a class="dropdown-item" th:href="@{/libro/listar}">Listar Libros</a></li>
-                </ul>
-            </li>
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Autores
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <li><a class="dropdown-item" th:href="@{/autor/registrar}">Crear Autor</a></li>
-                    <li><hr class="dropdown-divider"></li>
-
-                    <li><a class="dropdown-item" th:href="@{/autor/listar}">Listar Autores</a></li>
-                </ul>
-            </li>
-
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Editoriales
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-
-                    <li><a class="dropdown-item" th:href="@{/editorial/registrar}">Crear Editorial</a></li>
-                    <li><hr class="dropdown-divider"></li>
-
-                    <li><a class="dropdown-item" th:href="@{/editorial/listar}">Listar Editoriales</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
+<nav th:replace="~{/fragments/navbar :: nav}"> </nav>
 
 <div class="container m-5" >
 
@@ -67,7 +13,7 @@
         <tr>
             <th scope="col">Id de la Editorial</th>
             <th scope="col">Nombre de la Editorial</th>
-            <th scope="col">Acciones</th>
+            <th scope="col" sec:authorize="hasRole('ADMIN')">Acciones</th>
 
         </tr>
         </thead>
@@ -76,7 +22,7 @@
             <th scope="row" th:text="${editorial.id}"></th>
             <td th:text="${editorial.nombre}"></td>
             <td>
-                <a th:href= "@{/editorial/modificar/__${editorial.id}__}"><i class="fas fa-feather-alt">  </i> Modificar </a>
+                <a sec:authorize="hasRole('ADMIN')" th:href= "@{/editorial/modificar/__${editorial.id}__}"><i class="fas fa-feather-alt">  </i> Modificar </a>
             </td>
         </tr>
 
