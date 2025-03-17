@@ -8,6 +8,7 @@ import com.egg.biblioteca.repositories.AutorRepositorio;
 import com.egg.biblioteca.repositories.EditorialRepositorio;
 import com.egg.biblioteca.repositories.LibroRepositorio;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -82,8 +83,8 @@ public class LibroService {
             libroRepositorio.save(libroEncontrado);
         }
     }
-
-    private void validar (Long isbn, String titulo, Integer ejemplares, UUID idAutor, UUID idEditorial) throws MyException{
+    private void validar (Long isbn, String titulo, Integer ejemplares, UUID idAutor,
+                          UUID idEditorial) throws MyException{
         if (isbn==null){
             throw new MyException("El ISBN no puede ser NULO.");
         }
@@ -99,5 +100,9 @@ public class LibroService {
         if (idEditorial==null){
             throw new MyException("La EDITORIAL no puede ser NULA");
         }
+    }
+
+    public Libro getOne(Long isbn){
+        return libroRepositorio.findLibroByIsbn(isbn);
     }
 }

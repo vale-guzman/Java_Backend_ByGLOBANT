@@ -50,8 +50,9 @@ public class AutorControlador {
     }
 
     @GetMapping ("/modificar/{id}") //localhost:8080/autor/modificar
-    public String modificar(@PathVariable UUID id,
-                            ModelMap modelMap){
+    public String modificar(@PathVariable UUID id,  //PathVariable: lo uso porque
+                            ModelMap modelMap){     // el id viaja através de un fragmento de la URL
+
         autorService.getOne(id);
         modelMap.put("autor",autorService.getOne(id));
         return "autor_modificar.html";
