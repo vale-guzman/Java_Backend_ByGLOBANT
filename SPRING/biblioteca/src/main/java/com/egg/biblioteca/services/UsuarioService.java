@@ -105,15 +105,24 @@ public class UsuarioService implements UserDetailsService {
 
         Usuario usuario = usuarioRepositorio.findByEmail(email);
 
+        //verificamos si el usuario ingresó
         if (usuario != null) {
 
             List<GrantedAuthority> permisos = new ArrayList<>();
-
             GrantedAuthority p = new SimpleGrantedAuthority("ROLE_"+ usuario.getRol().toString());
 
+            //le damos los permisos.
             permisos.add(p);
-            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+
+            //insertamos una llamada p/atrapar ese usuario autenticado y guardarlo en la sesión Web
+            //esta llamada recupera los atrib. del request, es decir los atrb. de la solicitud Http ACTUAL.
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes(); //casteamos el tipo de dato que trae.
+
+            //Vamos a pedir con .getRequest, los datos de la solicitud http ACTUAL que pedimos antes y,
+            //con .getSession() los datos del usuario ACTUAL logueado.
             HttpSession session = attr.getRequest().getSession(true);
+
+            //ahora, guardo el objeto Usuario, en la sesion. Seteandole los atributos y llamandole "usuariosession".
             session.setAttribute("usuariosession", usuario);
 
             return new User(usuario.getEmail(), usuario.getPassword(),permisos);
@@ -122,3 +131,6 @@ public class UsuarioService implements UserDetailsService {
         }
     }
 }
+
+/* Recordar que tenemos un controlador que, debe direccionar al inicio.html para Usuarios comunes= USER
+   En cambio, si se loguea un ADMIN, queremos que se direccione al dashboard (panel_form.html) */

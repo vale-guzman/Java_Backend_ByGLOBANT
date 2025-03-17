@@ -58,8 +58,13 @@ public class PortalControlador {
     @GetMapping ("/inicio")
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // indicamos que pueden ingresar a esta URL (/inicio) solo si
                                                             // estamos logueados.
+    // este métod recibe un objeto tipo HttpSession.
     public String inicio(HttpSession session){
+
+       //Creamos un usuario que tiene todos los datos de la sesión a través del atributo llave "usuariosession".
         Usuario logueado = (Usuario) session.getAttribute("usuariosession");
+
+        //validamos qué tipo de usuario está logueado, y así direccionamos.
         if (logueado.getRol().toString().equals("ADMIN")) {
             return "redirect:/admin/dashboard";
         }
