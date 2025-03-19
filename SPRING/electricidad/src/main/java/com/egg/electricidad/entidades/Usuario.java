@@ -5,14 +5,16 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @NoArgsConstructor
 @Data
 @Entity
 @Table (name = "usuarios",schema = "electricidad")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String nombre;
     private String apellido;
     private String email;
