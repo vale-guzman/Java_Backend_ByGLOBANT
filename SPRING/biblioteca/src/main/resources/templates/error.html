@@ -21,16 +21,17 @@
 <header class="header">
     <section class="contenedorMain">
         <div class="tituloBiblioteca">
-            <a class="navbar-brand" href="#">BIBLIOTECA EGG</a>
+            <a class="navbar-brand" th:text="'Error '+${codigo}">BIBLIOTECA EGG</a>
+            <p class="tituloLibros" th:text="${mensaje}"></p>
         </div>
-        <div class="container contenedorLibros">
-            <p class="tituloLibros">Encontrá todos los Libros Aquí!</p>
-
-        </div>
-        <div class="bg-circle-1 bg-circle"></div>
-        <div class="bg-circle-2 bg-circle"></div>
-        <div class="bg-circle-3 bg-circle"></div>
-        <div class="bg-circle-4 bg-circle"></div>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <a th:href="@{/}" class="btn btn-primary my-2">Volver</a>
+                    </p>
+                </div>
+            </div>
+        </section>
     </section>
 </header>
 
