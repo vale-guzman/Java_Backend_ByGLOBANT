@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Artículos</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="lista-articulos">
+
+<!-- Navbar -->
+<header>
+    <nav>
+        <h1>La Casa de Electricidad</h1>
+    </nav>
+</header>
+
+<main class="main-lista-articulos">
+    <section class="form-container">
+        <h2>Gestión de Artículos</h2>
+
+        <!-- Mensajes de éxito o error -->
+        <div class="alert alert-success" id="exito" style="display: none;">¡Operación exitosa!</div>
+        <div class="alert alert-danger" id="error" style="display: none;">¡Hubo un error!</div>
+
+        <a href="#" class="btn">Nuevo Artículo</a>
+
+        <!-- Tabla para mostrar los artículos -->
+        <table class="table lista-articulos-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fábrica</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Artículo ABC</td>
+                    <td>Descripción del artículo ABC</td>
+                    <td>Fábrica XYZ</td>
+                    <td>
+                        <a href="#" class="btn btn-edit">
+                            <i class="fas fa-edit"></i> Modificar
+                        </a>
+                        <form action="#" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete" onclick="return confirm('¿Estás seguro?')">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Artículo XYZ</td>
+                    <td>Descripción del artículo XYZ</td>
+                    <td>Fábrica ABC</td>
+                    <td>
+                        <a href="#" class="btn btn-edit">
+                            <i class="fas fa-edit"></i> Modificar
+                        </a>
+                        <form action="#" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete" onclick="return confirm('¿Estás seguro?')">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 La Casa de Electricidad. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

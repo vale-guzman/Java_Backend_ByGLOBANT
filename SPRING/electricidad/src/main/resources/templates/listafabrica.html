@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Fábricas</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Para los iconos -->
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+    <nav>
+        <h1>La Casa de Electricidad</h1>
+    </nav>
+</header>
+
+<main>
+    <section class="form-container">
+        <h2>Gestión de Fábricas</h2>
+
+        <!-- Mensajes de éxito o error (puedes usarlo más adelante con backend si es necesario) -->
+        <div class="alert alert-success" id="exito" style="display: none;">¡Operación exitosa!</div>
+        <div class="alert alert-danger" id="error" style="display: none;">¡Hubo un error!</div>
+
+        <a href="#" class="btn">Nueva Fábrica</a>
+
+        <!-- Tabla para mostrar las fábricas -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fila de ejemplo, simula que hay fábricas cargadas -->
+                <tr>
+                    <td>1</td>
+                    <td>Fábrica ABC</td>
+                    <td>
+                        <!-- Icono de modificar -->
+                        <a href="#" class="btn btn-edit">
+                            <i class="fas fa-edit"></i> Modificar
+                        </a>
+                        <!-- Formulario para eliminar -->
+                        <form action="#" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete" onclick="return confirm('¿Estás seguro?')">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+
+                <!-- Otra fila de ejemplo -->
+                <tr>
+                    <td>2</td>
+                    <td>Fábrica XYZ</td>
+                    <td>
+                        <!-- Icono de modificar -->
+                        <a href="#" class="btn btn-edit">
+                            <i class="fas fa-edit"></i> Modificar
+                        </a>
+                        <!-- Formulario para eliminar -->
+                        <form action="#" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete" onclick="return confirm('¿Estás seguro?')">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main
