@@ -19,7 +19,7 @@ public class SeguridadWeb {
         //los únicos usuarios que podrán ingresar a la URL /admin serán los que tengan el rol "ADMIN"
                                 .requestMatchers( "/admin/**").hasRole("ADMIN")
                                 .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
-                                .requestMatchers("/login", "/registrar").permitAll() // Permitir acceso a login y registro
+                                .requestMatchers("/login", "/registrar","/registro").permitAll() // Permitir acceso a login y registro
                                 .anyRequest().authenticated() //Requiere autenticacion
                 )
                 .formLogin((form) -> form
