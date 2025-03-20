@@ -6,7 +6,7 @@ import com.egg.biblioteca.enumeraciones.Rol;
 import com.egg.biblioteca.exceptions.MyException;
 import com.egg.biblioteca.repositories.UsuarioRepositorio;
 import jakarta.servlet.http.HttpSession;
-// import jakarta.transaction.Transactional;
+
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,8 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,9 +37,11 @@ public class UsuarioService implements UserDetailsService {
     @Autowired
     private ImagenService imagenService;
 
+    @Transactional
     public void registrar(MultipartFile archivo, String nombre, String email, String password, String password2) throws MyException {
 
         validar(nombre, email, password, password2);
+
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setEmail(email);
@@ -70,6 +71,7 @@ public class UsuarioService implements UserDetailsService {
         }
     }
 
+    @Transactional
     public void actualizar(MultipartFile archivo, UUID id, String nombre, String email, String password, String password2) throws MyException {
 
         validar(nombre, email, password, password2);

@@ -18,7 +18,7 @@
             <th scope="col">Rol</th>
             <th scope="col">Cambiar Rol</th>
             <th scope="col">Modificar Datos</th>
-            <th scope="col" sec:authorize="hasRole('ADMIN')">Acciones</th>
+
 
         </tr>
         </thead>
@@ -27,7 +27,7 @@
         <tr>
             <th scope="row" th:text="${usuarios.id}"></th>
             <td th:text="${usuarios.nombre}"></td>
-            <td th:text="${usuarios.imagen}"></td>
+<!--            <td th:text="${usuarios.imagen}"></td>-->
             <td>
                 <a> <img th:if="${usuarios.imagen != null}" class="logo" th:src="@{/imagen/perfil/__${usuarios.id}__}"> </a>
             </td>

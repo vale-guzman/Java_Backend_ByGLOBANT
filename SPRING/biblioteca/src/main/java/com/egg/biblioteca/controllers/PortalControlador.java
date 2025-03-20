@@ -27,7 +27,7 @@ public class PortalControlador {
     }
 
     @GetMapping("/registrar")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public String registrar(){
         return "registro.html";
     }
@@ -43,6 +43,9 @@ public class PortalControlador {
                     return "index.html";
         }catch (MyException ex){
             modelMap.put("error", ex.getMessage());
+            modelMap.put("nombre", nombre);
+            modelMap.put("email", email);
+
             return "registro.html"; //Volvemos a cargar el formulario
         }
     }

@@ -21,7 +21,7 @@ public class ImagenService {
     ImagenRepositorio imagenRepositorio;
 
     @Transactional
-                         //MutipartFile: es el tipo de Archivo en el que se va a almacenar la imagen
+    //MutipartFile: es el tipo de Archivo en el que se va a almacenar la imagen
     public Imagen guardar(MultipartFile archivo) throws MyException {
         if (archivo != null && !archivo.isEmpty()) {
             try {
@@ -49,13 +49,18 @@ public class ImagenService {
 
                 Imagen imagen = new Imagen();
 
+                //verfica que no esté vacío
                 if (id != null) {
+                    //lo busca
                     Optional<Imagen> respuesta = imagenRepositorio.findById(id);
 
+                    //Si lo encuentra, lo guarda
                     if (respuesta.isPresent()) {
                         imagen = respuesta.get();
                     }
                 }
+
+                //le setea todos los datos que traiga desde el Archivo.
                 imagen.setMime(archivo.getContentType());
                 imagen.setNombre(archivo.getOriginalFilename());
                 imagen.setContenido(archivo.getBytes());

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navBar" xmlns:sec="http://www.w3.org/1999/xhtml">
+<nav class="navbar navbar-expand-lg navBar" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div class="containerImg">
         <a href="#" class="navbar-brand d-flex align-items-center">
             <img class="logo" src="/img/Egg.png" alt="Img logo egg">
@@ -19,7 +19,6 @@
                     <li><a class="dropdown-item" th:href="@{/libro/listar}">Listar Libros</a></li>
                 </ul>
             </li>
-
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +63,7 @@
             </li>
 
             <li  class="nav-item">
-                <a class="nav-link" th:if="${session.usuariosession == null}" href="/registrar" id="navbarDropdown5" role="button" aria-expanded="false">
+                <a class="nav-link" th:if="${session.usuariosession == null}"  href="/registrar" id="navbarDropdown5" role="button" aria-expanded="false">
                     Registrate!
                 </a>
             </li>
