@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/")
@@ -21,14 +20,15 @@ public class PortalControlador {
 
     @Autowired
     private UsuarioService usuarioService;
+
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index.html";
     }
 
     @GetMapping("/registrar")
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public String registrar(){
+    public String registrar() {
         return "registro.html";
     }
 
@@ -36,12 +36,12 @@ public class PortalControlador {
     public String registro(@RequestParam MultipartFile archivo,
                            @RequestParam String nombre, @RequestParam String email,
                            @RequestParam String password, @RequestParam String password2,
-                           ModelMap modelMap){
-        try{
-            usuarioService.registrar(archivo,nombre, email, password, password2);
-            modelMap.put("exito","Usuario registrado Correctamente" );
-                    return "index.html";
-        }catch (MyException ex){
+                           ModelMap modelMap) {
+        try {
+            usuarioService.registrar(archivo, nombre, email, password, password2);
+            modelMap.put("exito", "Usuario registrado Correctamente");
+            return "index.html";
+        } catch (MyException ex) {
             modelMap.put("error", ex.getMessage());
             modelMap.put("nombre", nombre);
             modelMap.put("email", email);
@@ -49,22 +49,23 @@ public class PortalControlador {
             return "registro.html"; //Volvemos a cargar el formulario
         }
     }
+
     @GetMapping("/login")
     //puede o no venir un error, por esto el RequestParam es required=false
-    public String login(@RequestParam(required = false) String error, ModelMap modelmap){
+    public String login(@RequestParam(required = false) String error, ModelMap modelmap) {
         if (error != null) {
             modelmap.put("error", "Usuario o Contraseña inválidos!");
         }
         return "login.html";
     }
 
-    @GetMapping ("/inicio")
+    @GetMapping("/inicio")
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')") // indicamos que pueden ingresar a esta URL (/inicio) solo si
-                                                            // estamos logueados.
-    // este métod recibe un objeto tipo HttpSession.
-    public String inicio(HttpSession session){
+    // estamos logueados.
+    // este método recibe un objeto tipo HttpSession.
+    public String inicio(HttpSession session) {
 
-       //Creamos un usuario que tiene todos los datos de la sesión a través del atributo llave "usuariosession".
+        //Creamos un usuario que tiene todos los datos de la sesión a través del atributo llave "usuariosession".
         Usuario logueado = (Usuario) session.getAttribute("usuariosession");
 
         //validamos qué tipo de usuario está logueado, y así direccionamos.
@@ -73,4 +74,39 @@ public class PortalControlador {
         }
         return "inicio.html";
     }
+
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @GetMapping("/perfil")
+    public String perfil(ModelMap modelMap, HttpSession httpSession) {
+
+        //Creo un usuario y le guardo todos los datos del User que está logueado.
+        Usuario usuario = (Usuario) httpSession.getAttribute("usuariosession");
+
+        modelMap.put("usuario", usuario);
+
+        return "usuario_modificar.html";
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @PostMapping("/perfil/{id}")
+    public String actualizar(MultipartFile archivo, @PathVariable UUID id, @RequestParam String nombre, @RequestParam String email,
+                             @RequestParam String password, @RequestParam String password2, ModelMap modelo) {
+
+        try {
+            usuarioService.actualizar(archivo, id, nombre, email, password, password2);
+            modelo.put("exito", "El usuario fue actualizado correctamente.");
+            return "inicio.html";
+        } catch (MyException ex) {
+            modelo.put("error", ex.getMessage());
+            modelo.put("nombre", nombre);
+            modelo.put("email", email);
+
+            return "usuario_modificar.html";
+        }
+    }
+    @GetMapping("/logout")
+    public String logout() {
+        return "login.html";
+    }
+
 }
