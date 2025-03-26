@@ -16,7 +16,7 @@ public class Articulo {
     private UUID id;
 
     @Column(name="nro_articulo", unique = true, nullable = false)
-//  private static final AtomicInteger atomicInteger= new AtomicInteger(1);
+    // private static final AtomicInteger atomicInteger= new AtomicInteger(1);
     private Integer nroArticulo;
 
     private String nombre;
@@ -26,6 +26,5 @@ public class Articulo {
     @ManyToOne
     @JoinColumn(name="id_fabrica")
     private Fabrica fabrica;
-
 
 }
