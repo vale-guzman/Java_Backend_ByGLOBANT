@@ -1,35 +1,47 @@
-body {
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body {
+    width: 100vw;
+    max-width: 100%; /* Hace que la imagen se ajuste al ancho de la pantalla */;
     font-family: Arial, sans-serif;
     text-align: center;
     background-size: cover;
     color: black;
+    border-width: 0;
     margin: 0;
     padding: 0;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+    overflow-x: hidden; /* Evita el scroll horizontal */
 
 }
 
 .navbar {
-    width: 100%;
+    width: 100vw;
+    max-width: 100%; /* Hace que la imagen se ajuste al ancho de la pantalla */
     display: flex;
-    justify-content: right;
+    justify-content: flex-end; /* Alinea a la derecha sin desbordar */
+    flex-wrap: wrap; /* Permite que los elementos se acomoden si no caben */
     padding: 15px;
-    /* background: rgba(255, 255, 255, 0.8); */
     position: absolute;
     top: 0;
     left: 0;
+    overflow: hidden; /* Evita desbordamiento */
+    box-sizing: border-box; /* Evita que padding sume más ancho */
 }
 
 .navbar a {
+    width: 100vw;
+    white-space: nowrap; /* Evita que los enlaces se dividan en varias líneas */
     text-decoration: none;
     color: aliceblue;
     font-weight: normal;
-    margin: 0 10px;
+    margin: 0 10px ;
     padding: 8px 15px;
     border: 1px solid lightseagreen;
     border-radius: 5px;
@@ -37,6 +49,7 @@ body {
 }
 
 header {
+    width: 100vw;
     /*  background: rgba(255, 255, 255, 0.9); */
     background-size: cover;
     height: 80%;
@@ -48,19 +61,21 @@ header {
 }
 
 .container {
+    width: 100vw;
+    overflow-x: hidden;
+    max-width: 100%; /* Asegura que el contenido no desborde */
     padding: 0;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 500px;
-    width: 100%;
+   
     margin: 0;
 }
 
 .login-form {
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
 }
@@ -70,7 +85,7 @@ header {
     margin: 10px auto;
     padding: 12px;
     width: 90%;
-    max-width: 300px;
+    max-width: 100%; /* Hace que la imagen se ajuste al ancho de la pantalla */
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -83,13 +98,13 @@ header {
     border-radius: 5px;
     cursor: pointer;
     width: 90%;
-    max-width: 300px;
+    max-width: 100%; /* Hace que la imagen se ajuste al ancho de la pantalla */
     margin: 0; /* Aumenta el margen entre los botones y el borde */
 }
 
 .separator-image {
     width: 50%; /* Ajusta el tamaño según lo necesites */
-    max-width: 11%; /* Puedes poner un tamaño máximo */
+    max-width: 100%; /* Hace que la imagen se ajuste al ancho de la pantalla */
     margin: 0; /* Da espacio arriba y abajo de la imagen */
     /*border-radius: 1px;  Si quieres bordes redondeados en la imagen */
     padding: 0;
