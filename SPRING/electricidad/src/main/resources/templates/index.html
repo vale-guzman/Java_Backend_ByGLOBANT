@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,10 @@
 <header>
     <h1>La Casa de Electricidad</h1>
 </header>
-<img class="separator-image" src="/img/fondo.png" />
+<div class="image-container">
+    <img class="responsive-image" src="/img/fondo.png" alt="Imagen ajustada">
+</div>
+
 <div class="navbar">
     <a href="#">Registrarse</a>
     <a href="#">Iniciar sesión</a>
@@ -19,13 +22,14 @@
     <h2>Bienvenido a La Casa de Electricidad</h2>
     <p>Tu tienda confiable de productos eléctricos.</p>
     <div class="login-form">
-        <input type="text" placeholder="Usuario">
-        <input type="password" placeholder="Contraseña">
-        <button>Iniciar sesión</button>
+        <input type="text" name="email" placeholder="EMAIL">
+        <input type="password" name="password" placeholder="CONTRASEÑA">
+        <button onclick="window.location.href='/inicio.html'">Iniciar sesión</button>
+
     </div>
 </div>
-<footer>
-    <p>&copy; 2025 La Casa de Electricidad. Todos los derechos reservados.</p>
-</footer>
+
+<!--uso fragmento para el footer-->
+<footer th:replace="~{/fragments/footer :: footer}"> </footer>
 </body>
 </html>
