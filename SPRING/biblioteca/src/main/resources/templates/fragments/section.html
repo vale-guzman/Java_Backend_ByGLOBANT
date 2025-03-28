@@ -5,13 +5,12 @@
     <div class="container contenedorLibros">
         <p class="tituloLibros" th:if="${session.usuariosession != null}"
            th:text=" 'Hola de nuevo '+ ${session.usuariosession.nombre} "></p>
-        <a class="btn btn-xl mt-2 boton">Ver Listado</a>
     </div>
 
     <!--Etiqueta de link para que se muestre una imagen que venga desde
     el llamado a la URL del controlador: /imagen/perfil/__${session.usuariosession.id}__
     del usuario que está logueado -->
-    <div class="container">
+    <div class="containerImg">
         <a class="d-flex align-items-center">
             <img class="logo" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" alt="Img logo egg" >
         </a>

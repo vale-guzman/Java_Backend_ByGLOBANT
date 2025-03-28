@@ -70,3 +70,7 @@
     justify-content: space-around;
     align-items: center;
 }
+td img {
+    width: 20% !important;
+    height: 20% !important;
+}
