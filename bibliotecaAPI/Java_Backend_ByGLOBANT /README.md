@@ -23,13 +23,13 @@ REST API for managing a library, built with Spring Framework and Maven.
    git clone https://github.com/Java_Backend_ByGLOBANT/bibliotecaAPI.git
    ```
 2. Navigate to the project directory:
-  ```bash
+   ```bash
    cd bibliotecaAPI
-  ```
+   ```
 3. Build and run the application:
-  ```bash
+   ```bash
    mvn spring-boot:run  
-  ``` 
+   ``` 
 
 ## 📖 API Documentation  
 > 🚧 *Under construction* – _This section is still being updated. Stay tuned for updates!._
