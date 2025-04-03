@@ -17,6 +17,9 @@ REST API for managing a library, built with Spring Framework and Maven.
 - JPAHibernate  
 - MySQL  
 
+## 📊 Database Schema
+![Database Schema](https://github.com/vale-guzman/Java_Backend_ByGLOBANT/bibliotecaAPI/src/main/resources/docs/ERdiagram.jpg)
+
 ## 🚀 How to Run  
 1. Clone this repository  
    ```bash
